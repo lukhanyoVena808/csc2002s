@@ -1,0 +1,322 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
+# GNU Make 4.3
+# Built for x86_64-pc-cygwin
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Fri Aug  5 20:40:11 2022
+
+# Variables
+
+# environment
+SYSTEMDRIVE = C:
+# environment
+LC_ALL = C
+# environment
+USERPROFILE = C:\Users\Student
+# environment
+VBOX_MSI_INSTALL_PATH = C:\Program Files\Oracle\VirtualBox\
+# makefile (from 'makefile', line 8)
+BINDIR = bin
+# environment
+LOCALAPPDATA = C:\Users\Student\AppData\Local
+# environment
+VSCODE_CWD = C:\Users\Student\AppData\Local\Programs\Microsoft VS Code
+# environment
+CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
+# environment
+SYSTEMROOT = C:\WINDOWS
+# environment
+PROCESSOR_LEVEL = 6
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;
+# default
+MAKE_COMMAND := make
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+DOKANLIBRARY1_LIBRARYPATH_X64 = C:\Program Files\Dokan\Dokan Library-1.4.1\lib\
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_6744_PBXUFLDKKLWPWKIR
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\Student\AppData\Roaming\Code\CachedData\da76f93349a72022ca4670c1b84860304616aaa2
+# environment
+LANG = C
+# default
+.LOADED := 
+# environment
+TMP = /cygdrive/c/Users/Student/AppData/Local/Temp
+# default
+.INCLUDE_DIRS = /usr/include /usr/include
+# makefile
+MAKEFLAGS = pqrR
+# environment
+ONEDRIVE = C:\Users\Student\OneDrive
+# makefile
+CURDIR := /cygdrive/c/Users/Student/Documents/Courses/2022/CSC2002S/Git/csc2002s
+# environment
+DOKANLIBRARY1_LIBRARYPATH_X86 = C:\Program Files\Dokan\Dokan Library-1.4.1\x86\lib\
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+PROGRAMFILES = C:\Program Files
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+!C: = c:\Users\Student\Documents\Courses\2022\CSC2002S\Git\csc2002s
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from 'makefile', line 1)
+MAKEFILE_LIST := makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 6744
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+*F = $(notdir $*)
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+ONEDRIVECONSUMER = C:\Users\Student\OneDrive
+# default
+MAKE_HOST := x86_64-pc-cygwin
+# environment
+PROGRAMDATA = C:\ProgramData
+# default
+SHELL := /bin/sh
+# environment
+HOMEPATH = \Users\Student
+# default
+MAKECMDGOALS := all
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+COMSPEC = C:\WINDOWS\system32\cmd.exe
+# environment
+WINDIR = C:\WINDOWS
+# makefile (from 'makefile', line 13)
+CLASSES = 
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+ 
+PATH = /cygdrive/c/Program Files/Python310/Scripts:/cygdrive/c/Program Files/Python310:/cygdrive/c/WINDOWS/system32:/cygdrive/c/WINDOWS:/cygdrive/c/WINDOWS/System32/Wbem:/cygdrive/c/WINDOWS/System32/WindowsPowerShell/v1.0:/cygdrive/c/WINDOWS/System32/OpenSSH:/cygdrive/c/iverilog/bin:/cygdrive/c/iverilog/gtkwave/bin:/usr/bin:/cygdrive/c/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin:/cygdrive/c/Program Files/PuTTY:/cygdrive/c/Users/Student/anaconda3/Lib/site-packages/choco:/cygdrive/c/ProgramData/chocolatey/bin:/usr/bin:/cygdrive/c/Users/Student/AppData/Local/Programs/Python/Python310:/cygdrive/c/Users/Student/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Python 3.10:/cygdrive/c/Users/Student/Downloads/MinGW/bin:/cygdrive/c/Users/Student/Downloads/openocd-0.10.0/bin:/cygdrive/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/cygdrive/c/Program Files/nodejs:/cygdrive/c/Program Files (x86)/Java/jre1.8.0_341/bin:/cygdrive/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/cygdrive/c/Users/Student/anaconda3:/cygdrive/c/Users/Student/anaconda3/Library/mingw-w64/bin:/cygdrive/c/Users/Student/anaconda3/Library/usr/bin:/cygdrive/c/Users/Student/anaconda3/Library/bin:/cygdrive/c/Users/Student/anaconda3/Scripts:/cygdrive/c/Users/Student/AppData/Local/Microsoft/WindowsApps:/cygdrive/c/Users/Student/AppData/Local/Programs/Git/cmd:/cygdrive/c/Users/Student/AppData/Local/Programs/Microsoft VS Code/bin:/cygdrive/c/Users/Student/AppData/Local/Programs/Julia-1.7.2/bin:/cygdrive/c/Users/Student/AppData/Local/Programs/MiKTeX/miktex/bin/x64:/cygdrive/c/Users/Student/AppData/Roaming/npm
+# environment
+ZES_ENABLE_SYSMAN = 1
+# environment
+COMPUTERNAME = DESKTOP-T826O88
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+PROMPT = $P$G
+# environment
+LOGONSERVER = \\DESKTOP-T826O88
+# environment
+USERNAME = Student
+# environment
+COMMONPROGRAMFILES = C:\Program Files\Common Files
+# automatic
+?F = $(notdir $?)
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+CHOCO = C:\Users\Student\anaconda3\Lib\site-packages\choco
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+# makefile (from 'makefile', line 4)
+JAVAC = /usr/bin/javac
+# automatic
++F = $(notdir $+)
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERDOMAIN = DESKTOP-T826O88
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+OS = Windows_NT
+# environment
+DOKANLIBRARY1 = C:\Program Files\Dokan\Dokan Library-1.4.1\
+# makefile
+.DEFAULT_GOAL := default
+# default
+MAKE_VERSION := 4.3
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+ 
+# environment
+USERDOMAIN_ROAMINGPROFILE = DESKTOP-T826O88
+# environment
+NUMBER_OF_PROCESSORS = 8
+# environment
+PUBLIC = C:\Users\Public
+# environment
+APPDATA = C:\Users\Student\AppData\Roaming
+# environment
+HOMEDRIVE = C:
+# environment
+PROCESSOR_ARCHITECTURE = AMD64
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/Student
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = /cygdrive/c/Users/Student/AppData/Local/Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\94d4dc0d377be6e9d06511f2c6ec2aad-1.70.0-main-sock
+# environment
+TERM = xterm-256color
+# makefile (from 'makefile', line 7)
+SRCDIR = src
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# environment
+OPENOCD = C:\Users\Student\Downloads\openocd-0.10.0\bin
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+SESSIONNAME = Console
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
+# environment
+PROCESSOR_REVISION = 8e0a
+# makefile (from 'makefile', line 15)
+CLASS_FILES = $(CLASSES:%.class=$(BINDIR)/%.class)
+# environment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+# variable set hash-table stats:
+# Load=103/1024=10%, Rehash=0, Collisions=12/138=9%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# src: could not be stat'd.
+# . (device 3733561588, inode 3940649674141542): 6 files, no impossibilities.
+
+# 6 files, no impossibilities in 2 directories.
+
+# Implicit Rules
+
+bin/%.class: src/%.java
+#  recipe to execute (from 'makefile', line 11):
+	$(JAVAC) -d $()/ -cp $(BINDIR) $<
+
+%.java:
+
+%.class:
+
+# 3 implicit rules, 0 (0.0%) terminal.
+# Files
+
+default:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.java:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 20):
+	rm $(BINDIR)/*.class
+
+# Not a target:
+.class:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-01 21:23:11.1494598
+#  File has been updated.
+#  Successfully updated.
+
+runThread:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 23):
+	java -cp $(BINDIR) 
+
+.SUFFIXES: .java .class
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=9/1024=1%, Rehash=0, Collisions=0/24=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 20 / storage = 148 B / avg = 7 B
+# current buf: size = 8162 B / used = 148 B / count = 20 / avg = 7 B
+
+# strcache performance: lookups = 29 / hit rate = 31%
+# hash-table stats:
+# Load=20/8192=0%, Rehash=0, Collisions=0/29=0%
+# Finished Make data base on Fri Aug  5 20:40:11 2022
+
+ 
