@@ -1,5 +1,5 @@
 make.exe --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/cygdrive/c/Users/Student/Documents/Courses/2022/CSC2002S/Git/csc2002s'
+make: Entering directory '/cygdrive/c/Users/Student/Documents/Courses/2022/CSC2002S/Git/csc2002s/csc2002s'
 make: Nothing to be done for 'default'.
-make: Leaving directory '/cygdrive/c/Users/Student/Documents/Courses/2022/CSC2002S/Git/csc2002s'
+make: Leaving directory '/cygdrive/c/Users/Student/Documents/Courses/2022/CSC2002S/Git/csc2002s/csc2002s'
  

@@ -11,20 +11,27 @@ import java.awt.image.BufferedImage;
 
 public class MeanFilterSerial {
 
-    public static void compute(int width, int height, int window, BufferedImage myImage){
+    /*
+     * Computes the mean of the pixels given a window size and
+     * updates the current pixel with the mean.
+     */
+    protected static void compute(int width, int height, int window, BufferedImage myImage){
         if(window%2!=0 && window>=3){   
             int EntryAndLoop =(window-1)/2;
-            for(int X_index=0;X_index<width;X_index++){
+            for(int X_index=0;X_index<width-window;X_index++){
                 for(int Y_index=EntryAndLoop;Y_index<height;Y_index++){
-                    // get mean of pixels
+                    // get Mean of pixels
                     double red =0, green =0, blue=0;
-
-                    for (int mi = -EntryAndLoop; mi <= EntryAndLoop; mi++) {
-                        int mindex = Math.min(Math.max(mi + Y_index, 0), height - 1);
-                        int pixel = myImage.getRGB(X_index,mindex);
-                        red += (float)((pixel & 0x00ff0000) >> 16)/ window;
-                        green += (float)((pixel & 0x0000ff00) >>  8)/ window;
-                        blue += (float)((pixel & 0x000000ff) >>  0)/ window;
+                    
+                    for(int column = X_index;column<X_index+window;column++){
+                        for (int mi = -EntryAndLoop; mi <= EntryAndLoop; mi++) {
+                            int ColumnIndex = Math.min(Math.max(mi + Y_index, 0),height - 1);
+                            int pixel = myImage.getRGB(column,ColumnIndex);
+                            red += (float)((pixel & 0x00ff0000) >> 16)/ (window*window);
+                            green += (float)((pixel & 0x0000ff00) >>  8)/ (window*window);
+                            blue += (float)((pixel & 0x000000ff) >>  0)/ (window*window);
+                        }
+                        
                     }
                     //Update pixel's rgb
                     int dpixel = (0xff000000) |(((int)red) << 16) |(((int)green) << 8) |(((int)blue) << 0);
@@ -32,7 +39,9 @@ public class MeanFilterSerial {
                 }
             }
         }
-        else{System.exit(0);}
+        else{
+             //exit gracefully
+            System.exit(0);}
     }
     
     public static void main(String[] args) {
@@ -49,6 +58,7 @@ public class MeanFilterSerial {
             windowWidth = Integer.parseInt(args[2]);
         }
         else{
+            //exit gracefully
             System.exit(0);
         }
         
@@ -58,7 +68,8 @@ public class MeanFilterSerial {
             BufferedImage getImgInfo = ImageIO.read(mSource);
             imgWidth=  getImgInfo.getWidth();
             imgHeight= getImgInfo.getHeight();
-            img = new BufferedImage(imgWidth,imgHeight,BufferedImage.TYPE_INT_ARGB);
+
+            img = new BufferedImage(imgWidth,imgHeight,BufferedImage.TYPE_INT_RGB);
             img = ImageIO.read(mSource);
             
         }catch(IOException e){

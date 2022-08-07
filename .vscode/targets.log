@@ -7,9 +7,8 @@ make: *** No rule to make target 'all'.  Stop.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Sat Aug  6 15:28:20 2022
+# Make data base, printed on Sun Aug  7 15:21:05 2022
 
 # Variables
 
@@ -42,7 +41,7 @@ MAKE_COMMAND := make
 # environment
 DOKANLIBRARY1_LIBRARYPATH_X64 = C:\Program Files\Dokan\Dokan Library-1.4.1\lib\
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_19304_MDXCMVPJDAKBQWJA
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_5904_DRGAFMPZCSDVYBFP
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -68,7 +67,7 @@ MAKEFLAGS = pqrR
 # environment
 ONEDRIVE = C:\Users\Student\OneDrive
 # makefile
-CURDIR := /cygdrive/c/Users/Student/Documents/Courses/2022/CSC2002S/Git/csc2002s
+CURDIR := /cygdrive/c/Users/Student/Documents/Courses/2022/CSC2002S/Git/csc2002s/csc2002s
 # environment
 DOKANLIBRARY1_LIBRARYPATH_X86 = C:\Program Files\Dokan\Dokan Library-1.4.1\x86\lib\
 # environment
@@ -82,7 +81,7 @@ MFLAGS = -pqrR
 # default
 .SHELLFLAGS := -c
 # environment
-!C: = c:\Users\Student\Documents\Courses\2022\CSC2002S\Git\csc2002s
+!C: = c:\Users\Student\Documents\Courses\2022\CSC2002S\Git\csc2002s\csc2002s
 # environment
 COMMONPROGRAMW6432 = C:\Program Files\Common Files
 # automatic
@@ -92,7 +91,7 @@ MAKEFILE_LIST := makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 19304
+VSCODE_PID = 5904
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -126,7 +125,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /cygdrive/c/Program Files/Python310/Scripts:/cygdrive/c/Program Files/Python310:/cygdrive/c/WINDOWS/system32:/cygdrive/c/WINDOWS:/cygdrive/c/WINDOWS/System32/Wbem:/cygdrive/c/WINDOWS/System32/WindowsPowerShell/v1.0:/cygdrive/c/WINDOWS/System32/OpenSSH:/cygdrive/c/iverilog/bin:/cygdrive/c/iverilog/gtkwave/bin:/usr/bin:/cygdrive/c/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin:/cygdrive/c/Program Files/PuTTY:/cygdrive/c/Users/Student/anaconda3/Lib/site-packages/choco:/cygdrive/c/ProgramData/chocolatey/bin:/usr/bin:/cygdrive/c/Users/Student/AppData/Local/Programs/Python/Python310:/cygdrive/c/Users/Student/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Python 3.10:/cygdrive/c/Users/Student/Downloads/MinGW/bin:/cygdrive/c/Users/Student/Downloads/openocd-0.10.0/bin:/cygdrive/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/cygdrive/c/Program Files/nodejs:/cygdrive/c/Program Files (x86)/Java/jre1.8.0_341/bin:/cygdrive/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/cygdrive/c/Users/Student/anaconda3:/cygdrive/c/Users/Student/anaconda3/Library/mingw-w64/bin:/cygdrive/c/Users/Student/anaconda3/Library/usr/bin:/cygdrive/c/Users/Student/anaconda3/Library/bin:/cygdrive/c/Users/Student/anaconda3/Scripts:/cygdrive/c/Users/Student/AppData/Local/Microsoft/WindowsApps:/cygdrive/c/Users/Student/AppData/Local/Programs/Git/cmd:/cygdrive/c/Users/Student/AppData/Local/Programs/Microsoft VS Code/bin:/cygdrive/c/Users/Student/AppData/Local/Programs/Julia-1.7.2/bin:/cygdrive/c/Users/Student/AppData/Local/Programs/MiKTeX/miktex/bin/x64:/cygdrive/c/Users/Student/AppData/Roaming/npm
+PATH = /cygdrive/c/Program Files/Common Files/Oracle/Java/javapath:/cygdrive/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/cygdrive/c/Program Files/Python310/Scripts:/cygdrive/c/Program Files/Python310:/cygdrive/c/WINDOWS/system32:/cygdrive/c/WINDOWS:/cygdrive/c/WINDOWS/System32/Wbem:/cygdrive/c/WINDOWS/System32/WindowsPowerShell/v1.0:/cygdrive/c/WINDOWS/System32/OpenSSH:/cygdrive/c/iverilog/bin:/cygdrive/c/iverilog/gtkwave/bin:/usr/bin:/cygdrive/c/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin:/cygdrive/c/Program Files/PuTTY:/cygdrive/c/Users/Student/anaconda3/Lib/site-packages/choco:/cygdrive/c/ProgramData/chocolatey/bin:/usr/bin:/cygdrive/c/Users/Student/AppData/Local/Programs/Python/Python310:/cygdrive/c/Users/Student/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Python 3.10:/cygdrive/c/Users/Student/Downloads/MinGW/bin:/cygdrive/c/Users/Student/Downloads/openocd-0.10.0/bin:/cygdrive/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/cygdrive/c/Program Files/nodejs:/cygdrive/c/Users/Student/anaconda3:/cygdrive/c/Users/Student/anaconda3/Library/mingw-w64/bin:/cygdrive/c/Users/Student/anaconda3/Library/usr/bin:/cygdrive/c/Users/Student/anaconda3/Library/bin:/cygdrive/c/Users/Student/anaconda3/Scripts:/cygdrive/c/Users/Student/AppData/Local/Microsoft/WindowsApps:/cygdrive/c/Users/Student/AppData/Local/Programs/Git/cmd:/cygdrive/c/Users/Student/AppData/Local/Programs/Microsoft VS Code/bin:/cygdrive/c/Users/Student/AppData/Local/Programs/Julia-1.7.2/bin:/cygdrive/c/Users/Student/AppData/Local/Programs/MiKTeX/miktex/bin/x64:/cygdrive/c/Users/Student/AppData/Roaming/npm
 # environment
 ZES_ENABLE_SYSMAN = 1
 # environment
@@ -228,8 +227,8 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
 
 # Directories
 
-# src (device 3733561588, inode 12947848928749470): No files, no impossibilities so far.
-# . (device 3733561588, inode 3940649674141542): 9 files, no impossibilities.
+# src (device 3733561588, inode 71776119061231376): No files, no impossibilities so far.
+# . (device 3733561588, inode 8162774324617786): 9 files, no impossibilities.
 
 # 9 files, no impossibilities in 2 directories.
 
@@ -286,7 +285,7 @@ all:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-01 21:23:11.1494598
+#  Last modified 2022-08-07 00:06:08.1386759
 #  File has been updated.
 #  Successfully updated.
 
@@ -310,12 +309,12 @@ runThread:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 22 / storage = 162 B / avg = 7 B
-# current buf: size = 8162 B / used = 162 B / count = 22 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 22 / storage = 165 B / avg = 7 B
+# current buf: size = 8162 B / used = 165 B / count = 22 / avg = 7 B
 
 # strcache performance: lookups = 32 / hit rate = 31%
 # hash-table stats:
 # Load=22/8192=0%, Rehash=0, Collisions=0/32=0%
-# Finished Make data base on Sat Aug  6 15:28:20 2022
+# Finished Make data base on Sun Aug  7 15:21:06 2022
 
  
