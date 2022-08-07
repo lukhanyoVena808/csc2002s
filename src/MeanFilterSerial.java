@@ -2,7 +2,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.util.Scanner;
+
 /*
  * Program to make each image pixel a mean of its neighbouring 
  * pixels using sequential programming.
@@ -10,22 +10,71 @@ import java.util.Scanner;
  */
 
 public class MeanFilterSerial {
+
+    public static void compute(int width, int height, int window, BufferedImage myImage){
+        if(window%2!=0 && window>=3){   
+            int EntryAndLoop =(window-1)/2;
+            for(int X_index=0;X_index<width;X_index++){
+                for(int Y_index=EntryAndLoop;Y_index<height;Y_index++){
+                    // get mean of pixels
+                    double red =0, green =0, blue=0;
+
+                    for (int mi = -EntryAndLoop; mi <= EntryAndLoop; mi++) {
+                        int mindex = Math.min(Math.max(mi + Y_index, 0), height - 1);
+                        int pixel = myImage.getRGB(X_index,mindex);
+                        red += (float)((pixel & 0x00ff0000) >> 16)/ window;
+                        green += (float)((pixel & 0x0000ff00) >>  8)/ window;
+                        blue += (float)((pixel & 0x000000ff) >>  0)/ window;
+                    }
+                    //Update pixel's rgb
+                    int dpixel = (0xff000000) |(((int)red) << 16) |(((int)green) << 8) |(((int)blue) << 0);
+                    myImage.setRGB(X_index, Y_index, dpixel);
+                }
+            }
+        }
+        else{System.exit(0);}
+    }
     
     public static void main(String[] args) {
-        Scanner rd = new Scanner(System.in);
-        System.out.println("Type:");
-        String inputImage = "../images/"+rd.next();
-        String outputImage = "../images/"+rd.next();
-        int windowWidth = rd.nextInt();
+        BufferedImage img = null;
+        String inputImage = "../images/";
+        String outputImage = "../images/";
+        int windowWidth = 0;
+        int imgWidth = 0;
+        int imgHeight =0;
         
-        // if(args.length>0){
-        //     inputImage = args[0];
-        //     outputImage = args[1];
-        // }
-        // else{
-        //     System.exit(0);
-        // }
-        // System.out.println(inputImage);
+        if(args.length>0){
+            inputImage = inputImage+args[0]+".jpg";
+            outputImage = outputImage+args[1]+".jpg";
+            windowWidth = Integer.parseInt(args[2]);
+        }
+        else{
+            System.exit(0);
+        }
         
+        //Read input Image
+        try{
+            File mSource = new File(inputImage);
+            BufferedImage getImgInfo = ImageIO.read(mSource);
+            imgWidth=  getImgInfo.getWidth();
+            imgHeight= getImgInfo.getHeight();
+            img = new BufferedImage(imgWidth,imgHeight,BufferedImage.TYPE_INT_ARGB);
+            img = ImageIO.read(mSource);
+            
+        }catch(IOException e){
+            System.out.println("Error");
+            e.printStackTrace();
+        }
+        //update image by change each pixel
+        MeanFilterSerial.compute(imgWidth, imgHeight, windowWidth, img);
+
+        //Write to Output Image
+        try{
+            File myDestFile = new File(outputImage);
+            ImageIO.write(img,"jpg",myDestFile);
+        }catch (IOException e){
+            System.out.println("Error");
+            e.printStackTrace();
+        }
     }
 }
