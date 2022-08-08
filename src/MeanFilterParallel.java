@@ -4,15 +4,74 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
-import java.util.concurrent.RecursiveTask;
 
 /*
  * Program to make each image pixel a mean of its neighbouring 
  * pixels using parallel programming.
  * @author Lukhanyo Vena
  */
+public class MeanFilterParallel extends RecursiveAction{
 
-public class MeanFilterParallel {
+    private int Width;
+    private int Height;
+    private int Window;
+    private BufferedImage BufferedImg;
+    
+    protected static int Area_THRESHOLD = 1920*959;
+
+    public MeanFilterParallel(int width, int height, int window, BufferedImage image){
+        Width = width;
+        Height = height;
+        Window = window;
+        BufferedImg = image;
+
+    }
+    protected void compute(){
+        if(Window%2!=0 && Window>=3){
+            int area = Width*Height;
+            if(area<Area_THRESHOLD){
+                computeDirectly();
+            }
+
+            else{
+                int split = (int)Math.floor((double)Window/2);
+                MeanFilterParallel left;
+                MeanFilterParallel right;
+
+            }
+            
+        }
+        else{
+            //exit gracefully
+           System.exit(0);}
+
+
+    }
+
+    protected void computeDirectly(){
+        int EntryAndLoop =(Window-1)/2;
+        int numPixels = Window*Window; 
+        for(int X_index=0;X_index<Width-Window;X_index++){
+            for(int Y_index=EntryAndLoop;Y_index<Height;Y_index++){
+                // get Mean of pixels
+                double red =0, green =0, blue=0;
+                for(int column = X_index;column<X_index+Window;column++){
+                    for (int mi = -EntryAndLoop; mi <= EntryAndLoop; mi++) {
+                        int ColumnIndex = Math.min(Math.max(mi + Y_index, 0),Height - 1);
+                        int pixel = BufferedImg.getRGB(column,ColumnIndex);
+
+                        //Averaging
+                        red += (float)((pixel & 0x00ff0000) >> 16)/ (numPixels);
+                        green += (float)((pixel & 0x0000ff00) >>  8)/ (numPixels);
+                        blue += (float)((pixel & 0x000000ff) >>  0)/ (numPixels);
+                    }
+                }
+                //Update pixel's rgb
+                int dpixel = (0xff000000) |(((int)red) << 16) |(((int)green) << 8) |(((int)blue) << 0);
+                BufferedImg.setRGB(X_index, Y_index, dpixel);
+            }
+        } 
+    }
 
     public static void main(String[] args) {
         BufferedImage img = null;
@@ -21,7 +80,7 @@ public class MeanFilterParallel {
         int windowWidth = 0;
         int imgWidth = 0;
         int imgHeight =0;
-        
+        StopWatch timer = new StopWatch();
         if(args.length>0){
             inputImage = inputImage+args[0]+".jpg";
             outputImage = outputImage+args[1]+".jpg";
@@ -38,15 +97,19 @@ public class MeanFilterParallel {
             BufferedImage getImgInfo = ImageIO.read(mSource);
             imgWidth=  getImgInfo.getWidth();
             imgHeight= getImgInfo.getHeight();
-            img = new BufferedImage(imgWidth,imgHeight,BufferedImage.TYPE_INT_ARGB);
+            img = new BufferedImage(imgWidth,imgHeight,BufferedImage.TYPE_INT_RGB);
             img = ImageIO.read(mSource);
             
         }catch(IOException e){
             System.out.println("Error");
             e.printStackTrace();
         }
-        //update image by change each pixel
-        MeanFilterSerial.compute(imgWidth, imgHeight, windowWidth, img);
+        //update image by change each pixel using Fork/Join
+        MeanFilterParallel mnParallel = new MeanFilterParallel(imgWidth, imgHeight, windowWidth, img);
+        ForkJoinPool pool = new ForkJoinPool();
+        timer.start();
+        pool.invoke(mnParallel);
+        timer.stop();
 
         //Write to Output Image
         try{

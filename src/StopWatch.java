@@ -12,6 +12,6 @@ public class StopWatch {
     }
 
     public void stop() {
-        System.out.println("Execution Time: "+(System.currentTimeMillis()-start));
+        System.out.println("Execution Time: "+((double)(System.currentTimeMillis()-start)/1000));
     }
 }

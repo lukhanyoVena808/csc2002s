@@ -24,18 +24,22 @@ public class MedianFilterSerial {
                 for(int Y_index=EntryAndLoop;Y_index<height;Y_index++){
                     // get Median of pixels
                     double red =0, green =0, blue=0;
-                    ArrayList<Integer> pixels = new ArrayList<>();//keeps thr RGB all pixels in the window
-                    for(int column = X_index;column<=X_index+window;column++){
+
+                    //keeps the RGB of all pixels in the window
+                    ArrayList<Integer> pixels = new ArrayList<>();
+
+                    for(int column = X_index;column<X_index+window;column++){
                         for (int mi = -EntryAndLoop; mi <= EntryAndLoop; mi++) {
                             int ColumnIndex = Math.min(Math.max(mi + Y_index, 0),height - 1);
                             pixels.add(myImage.getRGB(column,ColumnIndex));
                         }  
                     }
                     Collections.sort(pixels);
-                    int pixel =pixels.get(pixels.size()/2);
+                    int pixel = pixels.get(pixels.size()/2); //get median pixel
                     red += ((pixel & 0x00ff0000) >> 16);
-                    green += ((pixel & 0x0000ff00) >>  8);
+                    green += ((pixel & 0x0000ff00) >> 8);
                     blue += ((pixel & 0x000000ff) >>  0);
+
                     //Update pixel's rgb
                     int dpixel = (0xff000000) |(((int)red) << 16) |(((int)green) << 8) |(((int)blue) << 0);
                     myImage.setRGB(X_index, Y_index, dpixel);
@@ -47,19 +51,8 @@ public class MedianFilterSerial {
             System.exit(0);}
     }
 
-    protected static Integer getMedian(ArrayList <Integer> arr){
-        int med = 0;
-        if(arr.size()%2!=0){med = arr.get(arr.size()/2);}
-        else{
-            int firstHalf = (arr.size()/2)-1;
-            int secondHalf = firstHalf+1;
-            med = (arr.get(firstHalf)+arr.get(secondHalf))/2;
-        }
-        return med;
-    }
-    
     public static void main(String[] args) {
-        BufferedImage img = null;
+        BufferedImage img=null;
         String inputImage = "../images/";
         String outputImage = "../images/";
         int windowWidth = 0;
@@ -67,7 +60,7 @@ public class MedianFilterSerial {
         int imgHeight =0;
         
         if(args.length>0){
-            inputImage = inputImage+args[0]+".jpg";
+            inputImage = inputImage+args[0];
             outputImage = outputImage+args[1]+".jpg";
             windowWidth = Integer.parseInt(args[2]);
         }
@@ -95,8 +88,8 @@ public class MedianFilterSerial {
 
         //Write to Output Image
         try{
-            File myDestFile = new File(outputImage);
-            ImageIO.write(img,"jpg",myDestFile);
+            File myDestination = new File(outputImage);
+            ImageIO.write(img,"jpg",myDestination);
         }catch (IOException e){
             System.out.println("Error");
             e.printStackTrace();

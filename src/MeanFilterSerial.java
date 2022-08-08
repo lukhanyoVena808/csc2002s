@@ -22,11 +22,12 @@ public class MeanFilterSerial {
                 for(int Y_index=EntryAndLoop;Y_index<height;Y_index++){
                     // get Mean of pixels
                     double red =0, green =0, blue=0;
-                    
                     for(int column = X_index;column<X_index+window;column++){
                         for (int mi = -EntryAndLoop; mi <= EntryAndLoop; mi++) {
                             int ColumnIndex = Math.min(Math.max(mi + Y_index, 0),height - 1);
                             int pixel = myImage.getRGB(column,ColumnIndex);
+
+                            //Averaging 
                             red += (float)((pixel & 0x00ff0000) >> 16)/ (window*window);
                             green += (float)((pixel & 0x0000ff00) >>  8)/ (window*window);
                             blue += (float)((pixel & 0x000000ff) >>  0)/ (window*window);
@@ -51,7 +52,7 @@ public class MeanFilterSerial {
         int windowWidth = 0;
         int imgWidth = 0;
         int imgHeight =0;
-        
+        StopWatch timer = new StopWatch();
         if(args.length>0){
             inputImage = inputImage+args[0]+".jpg";
             outputImage = outputImage+args[1]+".jpg";
@@ -76,13 +77,15 @@ public class MeanFilterSerial {
             System.out.println("Error");
             e.printStackTrace();
         }
-        //update image by change each pixel
+        timer.start();
+        //Computing mean of pixels
         MeanFilterSerial.compute(imgWidth, imgHeight, windowWidth, img);
+        timer.stop();
 
         //Write to Output Image
         try{
-            File myDestFile = new File(outputImage);
-            ImageIO.write(img,"jpg",myDestFile);
+            File myDestination = new File(outputImage);
+            ImageIO.write(img,"jpg",myDestination);
         }catch (IOException e){
             System.out.println("Error");
             e.printStackTrace();
