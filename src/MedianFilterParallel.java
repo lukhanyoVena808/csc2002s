@@ -20,6 +20,7 @@ public class MedianFilterParallel extends RecursiveAction{
     private BufferedImage BufferedImg;
     private int Offset_X;
     private int Offset_Y;
+    private int EntryAndLoop;
     
     protected static int Area_THRESHOLD =3480*2160;
 
@@ -30,6 +31,7 @@ public class MedianFilterParallel extends RecursiveAction{
         Window = window;
         Offset_Y= offset_Y;
         Offset_X= offset_X;
+        EntryAndLoop =(Window-1)/2;
 
     }
     protected void compute(){
@@ -45,7 +47,7 @@ public class MedianFilterParallel extends RecursiveAction{
                 MeanFilterParallel left = new MeanFilterParallel(0,splitX,0,splitY,Window, BufferedImg);
                 MeanFilterParallel right =  new MeanFilterParallel(splitX,Width-splitX,splitY,Height-splitY,Window, BufferedImg);
                 left.fork(); //give first half to new threas
-		    	right.compute(); //do second half in this thread
+		    	right.compute(); //do second half in main thread
                 left.join();
 
             }
@@ -57,8 +59,6 @@ public class MedianFilterParallel extends RecursiveAction{
     }
 
     protected void computeDirectly(){
-        int EntryAndLoop =(Window-1)/2;
-        int numPixels = Window*Window; 
         for(int X_index=Offset_X;X_index<(Width-Window)+Offset_X;X_index++){
             for(int Y_index=EntryAndLoop+Offset_Y;Y_index<Height+Offset_Y;Y_index++){
                 // get Mean of pixels
@@ -69,7 +69,7 @@ public class MedianFilterParallel extends RecursiveAction{
                 
                 for(int column = X_index;column<X_index+Window;column++){
                     for (int mi = -EntryAndLoop; mi <= EntryAndLoop; mi++) {
-                        int ColumnIndex = Math.min(Math.max(mi + Y_index, 0),Height - 1);
+                        int ColumnIndex = Math.min(Math.max(mi + Y_index, 0),Offset_Y+Height - 1);
                         pixels.add(BufferedImg.getRGB(column,ColumnIndex));
                     }
                 }

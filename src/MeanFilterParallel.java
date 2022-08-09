@@ -66,7 +66,7 @@ public class MeanFilterParallel extends RecursiveAction{
                 double red =0, green =0, blue=0;
                 for(int column = X_index;column<X_index+Window;column++){
                     for (int mi = -EntryAndLoop; mi <= EntryAndLoop; mi++) {
-                        int ColumnIndex = Math.min(Math.max(mi + Y_index, 0),Height - 1);
+                        int ColumnIndex = Math.min(Math.max(mi + Y_index, 0),Offset_Y+Height - 1);
                         int pixel = BufferedImg.getRGB(column,ColumnIndex);
 
                         //Averaging
