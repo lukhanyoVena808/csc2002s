@@ -16,14 +16,22 @@ public class MeanFilterParallel extends RecursiveAction{
     private int Height;
     private int Window;
     private BufferedImage BufferedImg;
+    private int Offset_X;
+    private int Offset_Y;
+    private int EntryAndLoop;
+    private int numPixels;
     
     protected static int Area_THRESHOLD = 1920*959;
 
-    public MeanFilterParallel(int width, int height, int window, BufferedImage image){
+    public MeanFilterParallel(int offset_X,int width, int offset_Y,int height, int window, BufferedImage image){
+        BufferedImg = image;
         Width = width;
         Height = height;
         Window = window;
-        BufferedImg = image;
+        Offset_Y= offset_Y;
+        Offset_X= offset_X;
+        EntryAndLoop =(Window-1)/2;
+        numPixels = Window*Window;
 
     }
     protected void compute(){
@@ -34,9 +42,14 @@ public class MeanFilterParallel extends RecursiveAction{
             }
 
             else{
-                int split = (int)Math.floor((double)Window/2);
-                MeanFilterParallel left;
-                MeanFilterParallel right;
+                int splitX = (int)Math.floor((double)Width/2);  //half the width
+                int splitY = (int)Math.floor((double)Height/2); // and half the height
+                MeanFilterParallel left = new MeanFilterParallel(0,splitX,0,splitY,Window, BufferedImg);
+                MeanFilterParallel right =  new MeanFilterParallel(splitX,Width-splitX,splitY,Height-splitY,Window, BufferedImg);
+                left.fork(); //give first half to new threas
+		    	right.compute(); //do second half in this thread
+                left.join();
+
 
             }
             
@@ -44,15 +57,11 @@ public class MeanFilterParallel extends RecursiveAction{
         else{
             //exit gracefully
            System.exit(0);}
-
-
     }
 
-    protected void computeDirectly(){
-        int EntryAndLoop =(Window-1)/2;
-        int numPixels = Window*Window; 
-        for(int X_index=0;X_index<Width-Window;X_index++){
-            for(int Y_index=EntryAndLoop;Y_index<Height;Y_index++){
+    protected void computeDirectly(){ 
+        for(int X_index=Offset_X;X_index<(Width-Window)+Offset_X;X_index++){
+            for(int Y_index=EntryAndLoop+Offset_Y;Y_index<Height+Offset_Y;Y_index++){
                 // get Mean of pixels
                 double red =0, green =0, blue=0;
                 for(int column = X_index;column<X_index+Window;column++){
@@ -105,7 +114,7 @@ public class MeanFilterParallel extends RecursiveAction{
             e.printStackTrace();
         }
         //update image by change each pixel using Fork/Join
-        MeanFilterParallel mnParallel = new MeanFilterParallel(imgWidth, imgHeight, windowWidth, img);
+        MeanFilterParallel mnParallel = new MeanFilterParallel(0,imgWidth, 0,imgHeight,windowWidth,img);
         ForkJoinPool pool = new ForkJoinPool();
         timer.start();
         pool.invoke(mnParallel);

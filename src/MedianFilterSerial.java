@@ -60,7 +60,7 @@ public class MedianFilterSerial {
         int imgHeight =0;
         
         if(args.length>0){
-            inputImage = inputImage+args[0];
+            inputImage = inputImage+args[0]+".jpg";;
             outputImage = outputImage+args[1]+".jpg";
             windowWidth = Integer.parseInt(args[2]);
         }
@@ -68,6 +68,7 @@ public class MedianFilterSerial {
             //exit gracefully
             System.exit(0);
         }
+        
         
         //Read input Image
         try{

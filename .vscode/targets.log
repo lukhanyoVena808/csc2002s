@@ -2,14 +2,16 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 make: *** No rule to make target 'all'.  Stop.
 
 # GNU Make 4.3
+ 
 # Built for x86_64-pc-cygwin
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
+ 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Mon Aug  8 09:33:01 2022
+# Make data base, printed on Tue Aug  9 14:24:51 2022
 
 # Variables
 
@@ -42,9 +44,8 @@ MAKE_COMMAND := make
 # environment
 DOKANLIBRARY1_LIBRARYPATH_X64 = C:\Program Files\Dokan\Dokan Library-1.4.1\lib\
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_5788_GTWHCAJUAWOQRUSP
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_4792_NPJWVQVBPAMAOKQK
 # environment
- 
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
@@ -93,7 +94,7 @@ MAKEFILE_LIST := makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 5788
+VSCODE_PID = 4792
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -128,7 +129,6 @@ MAKELEVEL := 0
 MAKE = $(MAKE_COMMAND)
 # environment
 PATH = /cygdrive/c/Program Files/Common Files/Oracle/Java/javapath:/cygdrive/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/cygdrive/c/Program Files/Python310/Scripts:/cygdrive/c/Program Files/Python310:/cygdrive/c/WINDOWS/system32:/cygdrive/c/WINDOWS:/cygdrive/c/WINDOWS/System32/Wbem:/cygdrive/c/WINDOWS/System32/WindowsPowerShell/v1.0:/cygdrive/c/WINDOWS/System32/OpenSSH:/cygdrive/c/iverilog/bin:/cygdrive/c/iverilog/gtkwave/bin:/usr/bin:/cygdrive/c/Program Files (x86)/GNU Arm Embedded Toolchain/10 2020-q4-major/bin:/cygdrive/c/Program Files/PuTTY:/cygdrive/c/Users/Student/anaconda3/Lib/site-packages/choco:/cygdrive/c/ProgramData/chocolatey/bin:/usr/bin:/cygdrive/c/Users/Student/AppData/Local/Programs/Python/Python310:/cygdrive/c/Users/Student/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Python 3.10:/cygdrive/c/Users/Student/Downloads/MinGW/bin:/cygdrive/c/Users/Student/Downloads/openocd-0.10.0/bin:/cygdrive/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/cygdrive/c/Program Files/nodejs:/cygdrive/c/Users/Student/anaconda3:/cygdrive/c/Users/Student/anaconda3/Library/mingw-w64/bin:/cygdrive/c/Users/Student/anaconda3/Library/usr/bin:/cygdrive/c/Users/Student/anaconda3/Library/bin:/cygdrive/c/Users/Student/anaconda3/Scripts:/cygdrive/c/Users/Student/AppData/Local/Microsoft/WindowsApps:/cygdrive/c/Users/Student/AppData/Local/Programs/Git/cmd:/cygdrive/c/Users/Student/AppData/Local/Programs/Microsoft VS Code/bin:/cygdrive/c/Users/Student/AppData/Local/Programs/Julia-1.7.2/bin:/cygdrive/c/Users/Student/AppData/Local/Programs/MiKTeX/miktex/bin/x64:/cygdrive/c/Users/Student/AppData/Roaming/npm
- 
 # environment
 ZES_ENABLE_SYSMAN = 1
 # environment
@@ -190,7 +190,6 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/Student
 # environment
- 
 COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
 # environment
 ELECTRON_RUN_AS_NODE = 1
@@ -223,6 +222,7 @@ CLASS_FILES = $(CLASSES:%.class=$(BINDIR)/%.class)
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
 # variable set hash-table stats:
+ 
 # Load=103/1024=10%, Rehash=0, Collisions=12/138=9%
 
 # Pattern-specific Variable Values
@@ -313,12 +313,13 @@ runThread:
 
 # No general ('VPATH' variable) search path.
 
+ 
 # strcache buffers: 1 (0) / strings = 22 / storage = 165 B / avg = 7 B
 # current buf: size = 8162 B / used = 165 B / count = 22 / avg = 7 B
 
 # strcache performance: lookups = 32 / hit rate = 31%
 # hash-table stats:
 # Load=22/8192=0%, Rehash=0, Collisions=0/32=0%
-# Finished Make data base on Mon Aug  8 09:33:01 2022
+# Finished Make data base on Tue Aug  9 14:24:51 2022
 
  

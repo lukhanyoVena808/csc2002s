@@ -90,5 +90,6 @@ public class MeanFilterSerial {
             System.out.println("Error");
             e.printStackTrace();
         }
+       
     }
 }
