@@ -8,9 +8,11 @@ SRCDIR=src
 BINDIR=bin
 
 $(BINDIR)/%.class:$(SRCDIR)/%.java
-	$(JAVAC) -d $()/ -cp $(BINDIR) $<
+	$(JAVAC) -d $(BINDIR)/ -cp $(BINDIR) $<
 
-CLASSES=
+CLASSES=MeanFilterSerial.class MeanFilterParallel.class \
+		MedianFilterSerial.class MedianFilterParallel.class \
+		StopWatch.class \
 
 CLASS_FILES =$(CLASSES:%.class=$(BINDIR)/%.class)
 
@@ -19,5 +21,5 @@ default: $(CLASS_FILES)
 clean:
 	rm $(BINDIR)/*.class
 
-runThread: $(CLASS_FILES)
-	java -cp $(BINDIR) 
+runMnSerial: $(CLASS_FILES)
+	java -cp $(BINDIR) MeanFilterSerial

@@ -2,16 +2,13 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 make: *** No rule to make target 'all'.  Stop.
 
 # GNU Make 4.3
- 
 # Built for x86_64-pc-cygwin
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
- 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Tue Aug  9 14:24:51 2022
+# Make data base, printed on Tue Aug  9 20:30:36 2022
 
 # Variables
 
@@ -44,7 +41,7 @@ MAKE_COMMAND := make
 # environment
 DOKANLIBRARY1_LIBRARYPATH_X64 = C:\Program Files\Dokan\Dokan Library-1.4.1\lib\
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_4792_NPJWVQVBPAMAOKQK
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_5700_NRWLLFCAHSIXHNZU
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -94,7 +91,7 @@ MAKEFILE_LIST := makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 4792
+VSCODE_PID = 5700
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -222,7 +219,6 @@ CLASS_FILES = $(CLASSES:%.class=$(BINDIR)/%.class)
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
 # variable set hash-table stats:
- 
 # Load=103/1024=10%, Rehash=0, Collisions=12/138=9%
 
 # Pattern-specific Variable Values
@@ -313,13 +309,12 @@ runThread:
 
 # No general ('VPATH' variable) search path.
 
- 
 # strcache buffers: 1 (0) / strings = 22 / storage = 165 B / avg = 7 B
 # current buf: size = 8162 B / used = 165 B / count = 22 / avg = 7 B
 
 # strcache performance: lookups = 32 / hit rate = 31%
 # hash-table stats:
 # Load=22/8192=0%, Rehash=0, Collisions=0/32=0%
-# Finished Make data base on Tue Aug  9 14:24:51 2022
+# Finished Make data base on Tue Aug  9 20:30:36 2022
 
  
