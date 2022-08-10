@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
+import java.util.Scanner;
 
 /*
  * Program to make each image pixel a mean of its neighbouring 
@@ -88,11 +89,13 @@ public class MedianFilterParallel extends RecursiveAction{
 
     public static void main(String[] args) {
         BufferedImage img = null;
+        Scanner rd = new Scanner(System.in);
         String inputImage = "src/images/";
         String outputImage = "src/images/";
         int windowWidth = 0;
         int imgWidth = 0;
         int imgHeight =0;
+
         
         if(args.length>0){
             inputImage = inputImage+args[0]+".jpg";
