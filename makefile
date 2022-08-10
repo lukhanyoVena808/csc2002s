@@ -20,5 +20,14 @@ default: $(CLASS_FILES)
 clean:
 	rm $(BINDIR)/*.class
 
-runMnSerial: $(CLASS_FILES)
-	java -cp $(BINDIR) MeanFilterSerial
+mean: $(CLASS_FILES)
+	java -cp $(BINDIR) MeanFilterSerial $(in) $(out) $(size)
+
+median: $(CLASS_FILES)
+	java -cp $(BINDIR) MedianFilterSerial $(in) $(out) $(size)
+
+meanp: $(CLASS_FILES)
+	java -cp $(BINDIR) MeanFilterParallel $(in) $(out) $(size)
+
+medianp: $(CLASS_FILES)
+	java -cp $(BINDIR) MedianFilterParallel $(in) $(out) $(size)
