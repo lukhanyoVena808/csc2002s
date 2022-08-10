@@ -122,7 +122,7 @@ public class MedianFilterParallel extends RecursiveAction{
         ForkJoinPool pool = new ForkJoinPool();
         long start = System.currentTimeMillis();
         pool.invoke(mnParallel);
-        System.out.println("Execution time: "+(System.currentTimeMillis()-start)+", for window: "+windowWidth+" and image: "+imgWidth+" x "+imgHeight);
+        System.out.println("Execution time: "+((double)(System.currentTimeMillis()-start)/1000)+", for window: "+windowWidth+" and image: "+imgWidth+" x "+imgHeight);
 
         //Write to Output Image
         try{

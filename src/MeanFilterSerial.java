@@ -81,7 +81,7 @@ public class MeanFilterSerial {
         //Computing mean of pixels
         long start = System.currentTimeMillis();
         MeanFilterSerial.compute(imgWidth, imgHeight, windowWidth, img);
-        System.out.println("Execution time: "+(System.currentTimeMillis()-start)+", for window: "+windowWidth+" and image: "+imgWidth+" x "+imgHeight);
+        System.out.println("Execution time: "+((double)(System.currentTimeMillis()-start)/1000)+", for window: "+windowWidth+" and image: "+imgWidth+" x "+imgHeight);
 
         //Write to Output Image
         try{
