@@ -52,7 +52,7 @@ public class MeanFilterSerial {
         int windowWidth = 0;
         int imgWidth = 0;
         int imgHeight =0;
-        StopWatch timer = new StopWatch();
+        
         if(args.length>0){
             inputImage = inputImage+args[0]+".jpg";
             outputImage = outputImage+args[1]+".jpg";
@@ -77,10 +77,11 @@ public class MeanFilterSerial {
             System.out.println("Error");
             e.printStackTrace();
         }
-        timer.start();
+        
         //Computing mean of pixels
+        long start = System.currentTimeMillis();
         MeanFilterSerial.compute(imgWidth, imgHeight, windowWidth, img);
-        timer.stop();
+        System.out.println("Execution time: "+(System.currentTimeMillis()-start)+", for window: "+windowWidth+" and image: "+imgWidth+" x "+imgHeight);
 
         //Write to Output Image
         try{

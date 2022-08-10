@@ -12,7 +12,6 @@ $(BINDIR)/%.class:$(SRCDIR)/%.java
 
 CLASSES=MeanFilterSerial.class MeanFilterParallel.class \
 		MedianFilterSerial.class MedianFilterParallel.class \
-		StopWatch.class \
 
 CLASS_FILES =$(CLASSES:%.class=$(BINDIR)/%.class)
 

@@ -53,8 +53,8 @@ public class MedianFilterSerial {
 
     public static void main(String[] args) {
         BufferedImage img=null;
-        String inputImage = "../images/";
-        String outputImage = "../images/";
+        String inputImage = "./images/";
+        String outputImage = "./images/";
         int windowWidth = 0;
         int imgWidth = 0;
         int imgHeight =0;
@@ -85,7 +85,9 @@ public class MedianFilterSerial {
             e.printStackTrace();
         }
         //update image by change each pixel
+        long start = System.currentTimeMillis();
         MedianFilterSerial.compute(imgWidth, imgHeight, windowWidth, img);
+        System.out.println("Execution time: "+(System.currentTimeMillis()-start)+", for window: "+windowWidth+" and image: "+imgWidth+" x "+imgHeight);
 
         //Write to Output Image
         try{
