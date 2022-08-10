@@ -73,14 +73,16 @@ public class MeanFilterParallel extends RecursiveAction{
                         int ColumnIndex = Math.min(Math.max(mi + Y_index, 0),Offset_Y+Height - 1);
                         int pixel = BufferedImg.getRGB(column,ColumnIndex);
 
-                        //Averaging
-                        red += (float)((pixel & 0x00ff0000) >> 16)/ (numPixels);
-                        green += (float)((pixel & 0x0000ff00) >>  8)/ (numPixels);
-                        blue += (float)((pixel & 0x000000ff) >>  0)/ (numPixels);
+                         // summing
+                         red += (pixel & 0x00ff0000) >> 16;
+                         green += (pixel & 0x0000ff00) >> 8;
+                         blue += (pixel & 0x000000ff) >> 0;
                     }
                 }
-                //Update pixel's rgb
-                int dpixel = (0xff000000) |(((int)red) << 16) |(((int)green) << 8) |(((int)blue) << 0);
+                // Update pixel's rgb
+                int dpixel = (0xff000000) | (((int) red/ (Window * Window)) << 16) 
+                                        | (((int) green/ (Window * Window)) << 8) 
+                                        | (((int) blue/ (Window * Window)) << 0);
                 BufferedImg.setRGB(X_index, Y_index, dpixel);
             }
         } 

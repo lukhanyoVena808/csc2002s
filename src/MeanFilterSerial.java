@@ -27,15 +27,18 @@ public class MeanFilterSerial {
                             int ColumnIndex = Math.min(Math.max(mi + Y_index, 0), height - 1);
                             int pixel = myImage.getRGB(column, ColumnIndex);
 
-                            // Averaging
-                            red += (float) ((pixel & 0x00ff0000) >> 16) / (window * window);
-                            green += (float) ((pixel & 0x0000ff00) >> 8) / (window * window);
-                            blue += (float) ((pixel & 0x000000ff) >> 0) / (window * window);
+                            // summing
+                            red += (pixel & 0x00ff0000) >> 16;
+                            green += (pixel & 0x0000ff00) >> 8;
+                            blue += (pixel & 0x000000ff) >> 0;
                         }
 
                     }
                     // Update pixel's rgb
-                    int dpixel = (0xff000000) | (((int) red) << 16) | (((int) green) << 8) | (((int) blue) << 0);
+                    int dpixel = (0xff000000) | (((int) red/ (window * window)) << 16) 
+                                            | (((int) green/ (window * window)) << 8) 
+                                            | (((int) blue/ (window * window)) << 0);
+
                     myImage.setRGB(X_index, Y_index, dpixel);
                 }
             }
