@@ -84,8 +84,8 @@ public class MeanFilterParallel extends RecursiveAction{
 
     public static void main(String[] args) {
         BufferedImage img = null;
-        String inputImage = "../images/";
-        String outputImage = "../images/";
+        String inputImage = "./images/";
+        String outputImage = "./images/";
         int windowWidth = 0;
         int imgWidth = 0;
         int imgHeight =0;
