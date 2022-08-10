@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
-import java.util.Scanner;
+
 
 /*
  * Program to make each image pixel a mean of its neighbouring 
@@ -35,6 +35,10 @@ public class MedianFilterParallel extends RecursiveAction{
         EntryAndLoop =(Window-1)/2;
 
     }
+    
+    /*
+     * Invokes the Fork/Join if image area over threshold
+     */
     protected void compute(){
         if(Window%2!=0 && Window>=3){
             int area = Width*Height;
@@ -62,7 +66,7 @@ public class MedianFilterParallel extends RecursiveAction{
     protected void computeDirectly(){
         for(int X_index=Offset_X;X_index<(Width-Window)+Offset_X;X_index++){
             for(int Y_index=EntryAndLoop+Offset_Y;Y_index<Height+Offset_Y;Y_index++){
-                // get Mean of pixels
+                // get Median of pixels
                 double red =0, green =0, blue=0;
 
                 //keeps the RGB of all pixels in the window
@@ -71,7 +75,7 @@ public class MedianFilterParallel extends RecursiveAction{
                 for(int column = X_index;column<X_index+Window;column++){
                     for (int mi = -EntryAndLoop; mi <= EntryAndLoop; mi++) {
                         int ColumnIndex = Math.min(Math.max(mi + Y_index, 0),Offset_Y+Height - 1);
-                        pixels.add(BufferedImg.getRGB(column,ColumnIndex));
+                        pixels.add(BufferedImg.getRGB(column,ColumnIndex)); //get pixel in window
                     }
                 }
                 Collections.sort(pixels);
@@ -89,7 +93,6 @@ public class MedianFilterParallel extends RecursiveAction{
 
     public static void main(String[] args) {
         BufferedImage img = null;
-        Scanner rd = new Scanner(System.in);
         String inputImage = "src/images/";
         String outputImage = "src/images/";
         int windowWidth = 0;

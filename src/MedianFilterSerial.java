@@ -84,7 +84,7 @@ public class MedianFilterSerial {
             System.out.println("Error");
             e.printStackTrace();
         }
-        //update image by change each pixel
+        //update image by changing each pixel
         long start = System.currentTimeMillis();
         MedianFilterSerial.compute(imgWidth, imgHeight, windowWidth, img);
         System.out.println("Execution time: "+((double)(System.currentTimeMillis()-start)/1000)+", for window: "+windowWidth+" and image: "+imgWidth+" x "+imgHeight);
