@@ -54,7 +54,7 @@ public class MedianFilterSerial {
     public static void main(String[] args) {
         BufferedImage img=null;
         String inputImage = "src/images/";
-        String outputImage = "src/images/";
+        String outputImage = "src/outputs/";
         int windowWidth = 0;
         int imgWidth = 0;
         int imgHeight =0;
