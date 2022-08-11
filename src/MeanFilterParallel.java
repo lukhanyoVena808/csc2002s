@@ -19,9 +19,9 @@ public class MeanFilterParallel extends RecursiveAction{
     private int Offset_X;
     private int Offset_Y;
     private int EntryAndLoop;
-    private int numPixels;
+
     
-    protected static int Area_THRESHOLD = 3480*2160;
+    protected static int Area_THRESHOLD = 3400*2110;
 
     public MeanFilterParallel(int offset_X,int width, int offset_Y,int height, int window, BufferedImage image){
         BufferedImg = image;
@@ -30,8 +30,7 @@ public class MeanFilterParallel extends RecursiveAction{
         Window = window;
         Offset_Y= offset_Y;
         Offset_X= offset_X;
-        EntryAndLoop =(Window-1)/2;
-        numPixels = Window*Window;
+        EntryAndLoop =(Window-1)/2;       
 
     }
 

@@ -22,7 +22,7 @@ public class MedianFilterParallel extends RecursiveAction{
     private int Offset_X;
     private int Offset_Y;
     private int EntryAndLoop;
-    
+    private int numPixels;
     protected static int Area_THRESHOLD =3480*2160;
 
     public MedianFilterParallel(int offset_X,int width, int offset_Y,int height, int window, BufferedImage image){
@@ -30,6 +30,7 @@ public class MedianFilterParallel extends RecursiveAction{
         Width = width;
         Height = height;
         Window = window;
+        numPixels = window*window;
         Offset_Y= offset_Y;
         Offset_X= offset_X;
         EntryAndLoop =(Window-1)/2;
@@ -41,6 +42,7 @@ public class MedianFilterParallel extends RecursiveAction{
      */
     protected void compute(){
         if(Window%2!=0 && Window>=3){
+           
             int area = Width*Height;
             if(area<Area_THRESHOLD){
                 computeDirectly();
@@ -49,8 +51,8 @@ public class MedianFilterParallel extends RecursiveAction{
             else{
                 int splitX = (int)Math.floor((double)Width/2);  //half the width
                 int splitY = (int)Math.floor((double)Height/2); // and half the height
-                MeanFilterParallel left = new MeanFilterParallel(0,splitX,0,splitY,Window, BufferedImg);
-                MeanFilterParallel right =  new MeanFilterParallel(splitX,Width-splitX,splitY,Height-splitY,Window, BufferedImg);
+                MedianFilterParallel left = new MedianFilterParallel(0,splitX,0,splitY,Window, BufferedImg);
+                MedianFilterParallel right =  new MedianFilterParallel(splitX,Width-splitX,splitY,Height-splitY,Window, BufferedImg);
                 left.fork(); //give first half to new threas
 		    	right.compute(); //do second half in main thread
                 left.join();
@@ -64,28 +66,34 @@ public class MedianFilterParallel extends RecursiveAction{
     }
 
     protected void computeDirectly(){
+
         for(int X_index=Offset_X;X_index<(Width-Window)+Offset_X;X_index++){
             for(int Y_index=EntryAndLoop+Offset_Y;Y_index<Height+Offset_Y;Y_index++){
-                // get Median of pixels
-                double red =0, green =0, blue=0;
-
+                        
                 //keeps the RGB of all pixels in the window
-                ArrayList<Integer> pixels = new ArrayList<>();
-                
+                ArrayList<Integer> Reds = new ArrayList<>();
+                ArrayList<Integer> Blues = new ArrayList<>();
+                ArrayList<Integer> Greens = new ArrayList<>();
+
                 for(int column = X_index;column<X_index+Window;column++){
                     for (int mi = -EntryAndLoop; mi <= EntryAndLoop; mi++) {
                         int ColumnIndex = Math.min(Math.max(mi + Y_index, 0),Offset_Y+Height - 1);
-                        pixels.add(BufferedImg.getRGB(column,ColumnIndex)); //get pixel in window
+                            //get pixel in window
+                            int pix = BufferedImg.getRGB(column,ColumnIndex);
+                            Reds.add((pix & 0x00ff0000) >> 16);
+                            Greens.add((pix & 0x0000ff00) >> 8);
+                            Blues.add((pix & 0x000000ff) >> 0);
                     }
                 }
-                Collections.sort(pixels);
-                int pixel = pixels.get(pixels.size()/2); //get median pixel
-                red += ((pixel & 0x00ff0000) >> 16);
-                green += ((pixel & 0x0000ff00) >> 8);
-                blue += ((pixel & 0x000000ff) >>  0);
-                
-                //Update pixel's rgb
-                int dpixel = (0xff000000) |(((int)red) << 16) |(((int)green) << 8) |(((int)blue) << 0);
+                Collections.sort(Reds);
+                Collections.sort(Blues);
+                Collections.sort(Greens);
+
+                // Update pixel's rgb
+                int dpixel = (0xff000000) | ((Reds.get(numPixels/2)) << 16) 
+                                        | ((Greens.get(numPixels/2)) << 8) 
+                                        | ((Blues.get(numPixels/2)) << 0);
+
                 BufferedImg.setRGB(X_index, Y_index, dpixel);
             }
         } 
