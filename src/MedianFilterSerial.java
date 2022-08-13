@@ -20,6 +20,7 @@ public class MedianFilterSerial {
     protected static void compute(int width, int height, int window, BufferedImage myImage){
         int numPixels = window*window;
         int EntryAndLoop =(window-1)/2;
+        
         if(window%2!=0 && window>=3){   
             for(int X_index=0;X_index<width-window;X_index++){
                 for(int Y_index=EntryAndLoop;Y_index<height;Y_index++){
@@ -28,6 +29,7 @@ public class MedianFilterSerial {
                     ArrayList<Integer> Reds = new ArrayList<>();
                     ArrayList<Integer> Blues = new ArrayList<>();
                     ArrayList<Integer> Greens = new ArrayList<>();
+                  
                     for(int column = X_index;column<X_index+window;column++){
                         for (int mi = -EntryAndLoop; mi <= EntryAndLoop; mi++) {
                             int ColumnIndex = Math.min(Math.max(mi + Y_index, 0),height-1);
@@ -40,7 +42,7 @@ public class MedianFilterSerial {
                     Collections.sort(Reds);
                     Collections.sort(Blues);
                     Collections.sort(Greens);
-
+                    
                     // Update pixel's rgb
                     int dpixel = (0xff000000) | ((Reds.get(numPixels/2)) << 16) 
                                             | ((Greens.get(numPixels/2)) << 8) 

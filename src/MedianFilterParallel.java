@@ -23,7 +23,7 @@ public class MedianFilterParallel extends RecursiveAction{
     private int Offset_Y;
     private int EntryAndLoop;
     private int numPixels;
-    protected static int Area_THRESHOLD =3480*2160;
+    protected static int Area_THRESHOLD =3400*2110;
 
     public MedianFilterParallel(int offset_X,int width, int offset_Y,int height, int window, BufferedImage image){
         BufferedImg = image;
