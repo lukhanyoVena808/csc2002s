@@ -7,7 +7,7 @@ Images using the Java Fork-Join library, thereafter benchmark the programs to de
 
 ### Method
 
-All images used to test can be found in the src/images folder. All input images used are "jpg" file.
+All images used to test can be found in the src/images folder and the output images are in the src/outputs folder. All input images used are "jpg" file.
 
 #### Terminal
 In both windows and linux, the java files can be complile in the main folder:
