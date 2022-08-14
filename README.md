@@ -25,7 +25,7 @@ java -cp src/ <FileName> <inputImageName> <outputImageName> <windowSize>
 example:
 ```console
 javac src/MeanFilterSerial.java
-``
+```
 ```console
 java -cp src/ MeanFilterSerial apple appleOut 3
 ```
